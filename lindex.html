@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Lucid by Vince · May 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Barlow+Condensed:wght@300;400;500;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --cream: #F7F3EE;
+  --cream2: #EDE8E1;
+  --ink: #1A1A1A;
+  --ink2: #2D2D2D;
+  --muted: #6B6560;
+  --dim: #9A948E;
+  --rule: #D4CFC9;
+  --red: #C41E3A;
+  --red2: #9E1830;
+  --up: #1A6B3A;
+  --down: #C41E3A;
+  --warn: #8B5E00;
+  --white: #FFFFFF;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Barlow', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background: var(--ink);
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  border-bottom: 3px solid var(--red);
+}
+
+.logo-lockup { display: flex; align-items: center; gap: 12px; }
+
+.logo-wordmark {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.logo-byline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: #888;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+.masthead-right {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: #888;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.masthead-right span {
+  color: var(--red);
+  font-weight: 600;
+}
+
+/* ── MONTH BANNER ── */
+.month-banner {
+  background: var(--cream2);
+  border-bottom: 1px solid var(--rule);
+  padding: 12px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.month-title {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink2);
+  letter-spacing: 0.01em;
+}
+
+.month-issue {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--dim);
+  text-transform: uppercase;
+}
+
+/* ── NAV ── */
+nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--rule);
+  padding: 0 48px;
+  display: flex;
+  overflow-x: auto;
+}
+
+nav a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 13px 20px;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+nav a:hover { color: var(--red); border-bottom-color: var(--red); }
+
+/* ── PHILOSOPHY STRIP ── */
+.phil-strip {
+  background: var(--ink);
+  padding: 22px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr 1px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.phil-divider { background: #333; }
+
+.phil-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.phil-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: #E8E4DC;
+  line-height: 1.55;
+  margin-bottom: 6px;
+}
+
+.phil-attr {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  color: #555;
+  letter-spacing: 0.08em;
+}
+
+.phil-body {
+  font-size: 12px;
+  color: #888;
+  line-height: 1.6;
+}
+
+/* ── MAIN LAYOUT ── */
+main { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+
+/* ── SECTION HEADERS ── */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 32px 0 14px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 24px;
+}
+
+.section-head h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.section-head .section-rule {
+  flex: 1;
+  height: 0;
+  border: none;
+}
+
+.section-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--red);
+  padding: 2px 8px;
+  font-weight: 600;
+}
+
+/* ── EDITORIAL GRID ── */
+.ed-grid { display: grid; gap: 0; }
+.col-2 { grid-template-columns: 1fr 1fr; }
+.col-3 { grid-template-columns: 1fr 1fr 1fr; }
+.col-4 { grid-template-columns: repeat(4, 1fr); }
+
+.col-border { border-right: 1px solid var(--rule); padding-right: 28px; margin-right: 28px; }
+.col-border:last-child { border-right: none; padding-right: 0; margin-right: 0; }
+
+/* ── SNAPSHOT ── */
+.snap-item {
+  display: flex;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: flex-start;
+}
+.snap-item:last-child { border-bottom: none; }
+
+.snap-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--red);
+  flex-shrink: 0;
+  width: 18px;
+  margin-top: 1px;
+  letter-spacing: 0.04em;
+}
+
+.snap-text {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.snap-text strong { color: var(--ink); font-weight: 500; }
+
+/* ── STABILITY ── */
+.stability-wrap { padding: 0; }
+
+.stability-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 100px;
+  font-weight: 900;
+  color: var(--ink);
+  line-height: 0.9;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.stability-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--warn);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.stability-scale {
+  font-size: 11px;
+  color: var(--dim);
+  margin-bottom: 20px;
+  font-family: 'Barlow Condensed', sans-serif;
+  letter-spacing: 0.06em;
+}
+
+.dim-row { margin-bottom: 9px; }
+.dim-top { display: flex; justify-content: space-between; margin-bottom: 3px; }
+.dim-name { font-size: 11px; color: var(--muted); font-family: 'Barlow', sans-serif; }
+.dim-val { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 600; color: var(--ink); letter-spacing: 0.04em; }
+.bar-track { height: 3px; background: var(--rule); }
+.bar-fill { height: 3px; }
+
+/* ── UNUSUAL HEADLINES ── */
+.hl-item { padding: 14px 0; border-bottom: 1px solid var(--rule); }
+.hl-item:last-child { border-bottom: none; }
+
+.hl-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--red);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.hl-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.4;
+  margin-bottom: 5px;
+}
+
+.hl-meta {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--dim);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.hl-desc { font-size: 12px; color: var(--muted); line-height: 1.55; }
+.hl-signal { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; color: var(--red); margin-top: 5px; font-weight: 600; letter-spacing: 0.04em; }
+
+/* ── MARKETS TABLE ── */
+.mkt-table { width: 100%; border-collapse: collapse; }
+.mkt-table th {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dim);
+  padding: 6px 0;
+  border-bottom: 1px solid var(--ink);
+  text-align: left;
+}
+.mkt-table th:not(:first-child) { text-align: right; }
+.mkt-table td { padding: 10px 0; border-bottom: 1px solid var(--rule); font-size: 13px; }
+.mkt-table td:not(:first-child) { text-align: right; }
+.mkt-table tr:last-child td { border-bottom: none; }
+.mkt-asset { font-family: 'Libre Baskerville', serif; font-size: 13px; font-weight: 700; color: var(--ink); }
+.mkt-val { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 500; color: var(--muted); letter-spacing: 0.02em; }
+.mkt-up { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; color: var(--up); }
+.mkt-dn { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; color: var(--down); }
+.mkt-note { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; color: var(--dim); }
+
+/* ── SIGNAL CELLS ── */
+.sig-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
+.sig-cell {
+  padding: 16px 16px 16px 0;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.sig-cell:nth-child(4n) { border-right: none; }
+.sig-cell:nth-last-child(-n+4) { border-bottom: none; }
+.sig-name { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-bottom: 4px; }
+.sig-val { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 700; color: var(--ink); line-height: 1.1; }
+.sig-note { font-size: 11px; color: var(--dim); margin-top: 3px; }
+
+/* ── GEO ── */
+.geo-item { padding: 14px 0; border-bottom: 1px solid var(--rule); display: flex; gap: 12px; }
+.geo-item:last-child { border-bottom: none; }
+.geo-flag { font-size: 18px; flex-shrink: 0; width: 26px; margin-top: 1px; }
+.geo-body { flex: 1; }
+.geo-title { font-family: 'Libre Baskerville', serif; font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
+.geo-desc { font-size: 12px; color: var(--muted); line-height: 1.55; }
+
+.tag {
+  display: inline-block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 1px 6px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.tag-red { background: #FDE8EB; color: var(--red2); }
+.tag-amber { background: #FDF3E3; color: #8B5E00; }
+.tag-green { background: #E6F4EC; color: #1A6B3A; }
+.tag-blue { background: #E8F0FD; color: #1A3A8B; }
+
+/* ── ARCANE ── */
+.arcane-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1;
+  margin: 8px 0 4px;
+  letter-spacing: -0.02em;
+}
+.arcane-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+.arcane-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+.arcane-warn { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; color: var(--dim); margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--rule); letter-spacing: 0.04em; }
+
+.scale-strip { display: flex; gap: 3px; margin: 10px 0 12px; }
+.scale-seg { flex: 1; padding: 4px 2px; text-align: center; }
+.scale-seg-label { font-family: 'Barlow Condensed', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.scale-seg-range { font-family: 'Barlow Condensed', sans-serif; font-size: 9px; color: var(--muted); margin-top: 1px; }
+
+/* ── COSMIC / CULTURE ── */
+.cosmic-icon { font-size: 28px; margin-bottom: 8px; }
+.cosmic-title { font-family: 'Libre Baskerville', serif; font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 5px; }
+.cosmic-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+.culture-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
+.culture-title { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--ink); line-height: 1.3; margin-bottom: 3px; }
+.culture-meta { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; color: var(--dim); letter-spacing: 0.06em; margin-bottom: 10px; }
+.culture-desc { font-size: 12px; color: var(--muted); line-height: 1.65; }
+
+/* ── ENTERTAINMENT ── */
+.ent-item { padding: 12px 0; border-bottom: 1px solid var(--rule); display: flex; gap: 12px; }
+.ent-item:last-child { border-bottom: none; }
+.ent-num { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; color: var(--red); flex-shrink: 0; width: 22px; margin-top: 1px; }
+.ent-body { flex: 1; }
+.ent-title { font-family: 'Libre Baskerville', serif; font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 3px; line-height: 1.35; }
+.ent-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+.ent-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; color: var(--red); font-weight: 600; margin-top: 3px; letter-spacing: 0.04em; }
+
+/* ── BENCHMARKS ── */
+.bm-row { display: flex; justify-content: space-between; align-items: baseline; padding: 9px 0; border-bottom: 1px solid var(--rule); }
+.bm-row:last-child { border-bottom: none; }
+.bm-label { font-size: 12px; color: var(--muted); }
+.bm-val { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; color: var(--ink); letter-spacing: 0.02em; }
+
+/* ── EM ── */
+.em-stat { margin-bottom: 16px; }
+.em-big { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 900; color: var(--ink); line-height: 1; letter-spacing: -0.02em; }
+.em-sublabel { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; color: var(--dim); letter-spacing: 0.08em; margin-top: 3px; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink);
+  margin-top: 60px;
+  padding: 28px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.footer-logo { display: flex; align-items: center; gap: 10px; }
+.footer-wordmark { font-family: 'Playfair Display', serif; font-style: italic; font-size: 16px; color: #888; }
+.footer-tag { font-size: 11px; color: #555; font-style: italic; }
+.footer-sources { font-size: 10px; color: #555; text-align: right; line-height: 1.75; letter-spacing: 0.02em; }
+
+/* ── SECTION SPACING ── */
+.section-block { padding-bottom: 40px; }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="logo-lockup">
+    <svg width="36" height="36" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="44" height="44" rx="7" fill="#F7F3EE"/>
+      <path d="M5,22 Q22,6 39,22 Q22,38 5,22 Z" stroke="#1A1A1A" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      <circle cx="22" cy="22" r="8.5" stroke="#1A1A1A" stroke-width="1.5" fill="none"/>
+      <circle cx="22" cy="22" r="3.5" fill="#1A1A1A"/>
+      <circle cx="25" cy="19" r="2" fill="#F7F3EE"/>
+      <line x1="12" y1="13" x2="10" y2="7" stroke="#999" stroke-width="1" stroke-linecap="round"/>
+      <line x1="22" y1="10" x2="22" y2="4" stroke="#999" stroke-width="1" stroke-linecap="round"/>
+      <line x1="32" y1="13" x2="34" y2="7" stroke="#999" stroke-width="1" stroke-linecap="round"/>
+    </svg>
+    <div>
+      <div class="logo-wordmark">lucid</div>
+      <div class="logo-byline">by vince</div>
+    </div>
+  </div>
+  <div class="masthead-right">
+    <span>May 2026</span> &nbsp;&middot;&nbsp; Issue 01 &nbsp;&middot;&nbsp; End of Month Wrap Up &amp; Stability Index
+  </div>
+</header>
+
+<!-- MONTH BANNER -->
+<div class="month-banner">
+  <div class="month-title">May 2026: The Month the Ceasefire Stopped the Clock</div>
+  <div class="month-issue">Published 31 May 2026 &nbsp;&middot;&nbsp; lucidbyvince.com</div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#snapshot">Snapshot</a>
+  <a href="#stability">Stability</a>
+  <a href="#markets">Markets</a>
+  <a href="#signals">Signals</a>
+  <a href="#geopolitics">Geopolitics</a>
+  <a href="#climate">Climate</a>
+  <a href="#emerging">Emerging Markets</a>
+  <a href="#arcane">Arcane Economics</a>
+  <a href="#philosophy">Philosophy</a>
+  <a href="#cosmic">Cosmic</a>
+  <a href="#culture">Culture</a>
+  <a href="#entertainment">Entertainment</a>
+</nav>
+
+<!-- PHILOSOPHY STRIP -->
+<div class="phil-strip" id="philosophy">
+  <div>
+    <div class="phil-eyebrow">Stoic Provocation &middot; May 2026</div>
+    <div class="phil-quote">"The impediment to action advances action. What stands in the way becomes the way."</div>
+    <div class="phil-attr">Marcus Aurelius, Meditations V.20</div>
+    <div class="phil-attr" style="margin-top:6px;font-size:12px;color:#666;">A war that cratered markets for three months became the ceasefire that launched them to all-time highs.</div>
+  </div>
+  <div class="phil-divider"></div>
+  <div>
+    <div class="phil-eyebrow">Question of the Month</div>
+    <div class="phil-quote">When markets hit all-time highs and consumer sentiment hits record lows — who is right?</div>
+    <div class="phil-body">Markets price the future; sentiment measures the present. S&P at 7,580 ATH. UMich at 44.8 record low. One of them is badly wrong — or both are, for different reasons.</div>
+  </div>
+  <div class="phil-divider"></div>
+  <div>
+    <div class="phil-eyebrow">Cognitive Bias of the Month</div>
+    <div class="phil-quote">Apophenia &mdash; seeing patterns where none exist</div>
+    <div class="phil-body">After every geopolitical shock, analysts construct inevitability narratives. In hindsight everything looks causal. In the moment, it was noise. The bias that makes markets predictable only in retrospect.</div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main>
+
+  <!-- SNAPSHOT + STABILITY + UNUSUAL -->
+  <div class="section-head" id="snapshot">
+    <h2>Executive Snapshot</h2>
+    <div class="section-tag">May 2026</div>
+  </div>
+
+  <div class="ed-grid col-2 section-block" style="gap:48px;">
+
+    <!-- LEFT: Snapshot -->
+    <div>
+      <div class="snap-item"><div class="snap-num">01</div><div class="snap-text">A tentative <strong>US-Iran 60-day ceasefire extension</strong> dominated May: oil shed 18% (worst month since March 2020), equities hit all-time highs, gold pulled back from near-record levels.</div></div>
+      <div class="snap-item"><div class="snap-num">02</div><div class="snap-text"><strong>S&amp;P 500 closed May at ~7,580</strong>, up +10.7% YTD from the Dec 31 2025 close of 6,845.50. Nasdaq surged +25% across April-May combined.</div></div>
+      <div class="snap-item"><div class="snap-num">03</div><div class="snap-text"><strong>New Fed Chair Kevin Warsh</strong> assumed office May 16. Rate held at 3.50-3.75% at the April 29 FOMC. Markets watching his first independent decision closely.</div></div>
+      <div class="snap-item"><div class="snap-num">04</div><div class="snap-text"><strong>University of Michigan Consumer Sentiment</strong> final May: 44.8 — record low, down 5 points from April. Stark disconnect from equity market euphoria.</div></div>
+      <div class="snap-item"><div class="snap-num">05</div><div class="snap-text">The <strong>UAE withdrew from OPEC on May 1</strong>. Ted Turner died May 6 (age 87). Barney Frank died May 19 (age 86). Kentucky Derby won by Golden Tempo on May 2.</div></div>
+      <div class="snap-item"><div class="snap-num">06</div><div class="snap-text"><strong>Bitcoin</strong> slid to ~$73,675 late May. <strong>Ethereum</strong> held ~$2,200-$2,345. Risk appetite rotated from crypto toward equities.</div></div>
+    </div>
+
+    <!-- RIGHT: Stability + Unusual stacked -->
+    <div style="display:flex;flex-direction:column;gap:40px;">
+
+      <div id="stability">
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:16px;padding-bottom:14px;border-bottom:2px solid var(--ink);">
+          <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;">Global Stability Score</h2>
+          <span class="section-tag">May 2026</span>
+        </div>
+        <div class="stability-wrap">
+          <div class="stability-number">34</div>
+          <div class="stability-label">Cautious Instability</div>
+          <div class="stability-scale">0 = complete chaos &nbsp;&middot;&nbsp; 100 = fully predictable</div>
+          <div class="dim-row"><div class="dim-top"><span class="dim-name">Geopolitical tension (25%)</span><span class="dim-val">22/100</span></div><div class="bar-track"><div class="bar-fill" style="width:22%;background:#C41E3A;"></div></div></div>
+          <div class="dim-row"><div class="dim-top"><span class="dim-name">Market volatility (20%)</span><span class="dim-val">70/100</span></div><div class="bar-track"><div class="bar-fill" style="width:70%;background:#1A6B3A;"></div></div></div>
+          <div class="dim-row"><div class="dim-top"><span class="dim-name">Economic predictability (20%)</span><span class="dim-val">42/100</span></div><div class="bar-track"><div class="bar-fill" style="width:42%;background:#8B5E00;"></div></div></div>
+          <div class="dim-row"><div class="dim-top"><span class="dim-name">Social / consumer stress (15%)</span><span class="dim-val">20/100</span></div><div class="bar-track"><div class="bar-fill" style="width:20%;background:#C41E3A;"></div></div></div>
+          <div class="dim-row"><div class="dim-top"><span class="dim-name">Climate / physical risk (10%)</span><span class="dim-val">45/100</span></div><div class="bar-track"><div class="bar-fill" style="width:45%;background:#8B5E00;"></div></div></div>
+          <div class="dim-row"><div class="dim-top"><span class="dim-name">Institutional integrity (10%)</span><span class="dim-val">30/100</span></div><div class="bar-track"><div class="bar-fill" style="width:30%;background:#C41E3A;"></div></div></div>
+        </div>
+      </div>
+
+      <div>
+        <div style="display:flex;align-items:baseline;gap:16px;margin-bottom:16px;padding-bottom:14px;border-bottom:2px solid var(--ink);">
+          <h2 style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;">Three Most Unusual Headlines</h2>
+        </div>
+        <div class="hl-item">
+          <div class="hl-num">Unusual No. 1</div>
+          <div class="hl-title">Curiosity rover gets a rock stuck in its drill — on Mars</div>
+          <div class="hl-meta">ScienceDaily / NASA &middot; May 11, 2026</div>
+          <div class="hl-desc">A $2.5bn machine 225 million km from Earth spent days vibrating and spinning to dislodge a pebble. Engineers succeeded via remote command with a 20-minute signal delay each way.</div>
+          <div class="hl-signal">&#8594; Even deep-space engineering hits mundane snags</div>
+        </div>
+        <div class="hl-item">
+          <div class="hl-num">Unusual No. 2</div>
+          <div class="hl-title">Sam Altman publicly reverses on AI job destruction</div>
+          <div class="hl-meta">Tech Startups &middot; May 26, 2026 &middot; Sydney</div>
+          <div class="hl-desc">The OpenAI CEO admitted he was wrong about AI causing mass white-collar job losses — largely unreported amid Iran war noise.</div>
+          <div class="hl-signal">&#8594; AI narrative shifting from displacement to augmentation</div>
+        </div>
+        <div class="hl-item">
+          <div class="hl-num">Unusual No. 3</div>
+          <div class="hl-title">Earth is flying through ancient supernova debris</div>
+          <div class="hl-meta">ScienceDaily &middot; May 13, 2026</div>
+          <div class="hl-desc">Radioactive iron isotopes in Antarctic ice confirm the solar system is passing through remnants of a stellar explosion. Potential long-term implications for cosmic ray flux.</div>
+          <div class="hl-signal">&#8594; Cosmological risk is real, just on a very long timeline</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MARKETS -->
+  <div class="section-head" id="markets">
+    <h2>Markets</h2>
+    <div class="section-tag">Month-End Snapshot · May 29 2026</div>
+  </div>
+  <div class="section-block">
+    <table class="mkt-table">
+      <thead>
+        <tr>
+          <th>Asset</th><th>May 29 Close</th><th>Dec 31 2025</th><th>MoM</th><th>YTD</th><th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="mkt-asset">S&amp;P 500</td><td class="mkt-val">7,580</td><td class="mkt-val">6,845.50</td><td class="mkt-val">—</td><td class="mkt-up">+10.7%</td><td class="mkt-note">ATH territory; Nasdaq +25% Apr-May</td></tr>
+        <tr><td class="mkt-asset">IBEX 35</td><td class="mkt-val">~17,745</td><td class="mkt-val">—</td><td class="mkt-val">—</td><td class="mkt-val">—</td><td class="mkt-note">May 22 delayed ~17,985; verify via BME</td></tr>
+        <tr><td class="mkt-asset">Gold (spot)</td><td class="mkt-val">~$4,510</td><td class="mkt-val">—</td><td class="mkt-val">—</td><td class="mkt-up">—</td><td class="mkt-note">Pulled back near ceasefire</td></tr>
+        <tr><td class="mkt-asset">Brent Crude</td><td class="mkt-val">~$91–93</td><td class="mkt-val">—</td><td class="mkt-dn">−18%</td><td class="mkt-val">—</td><td class="mkt-note">Worst month since Mar 2020</td></tr>
+        <tr><td class="mkt-asset">Bitcoin</td><td class="mkt-val">~$73,675</td><td class="mkt-val">—</td><td class="mkt-dn">—</td><td class="mkt-val">—</td><td class="mkt-note">Sliding late May</td></tr>
+        <tr><td class="mkt-asset">Ethereum</td><td class="mkt-val">~$2,200</td><td class="mkt-val">—</td><td class="mkt-dn">—</td><td class="mkt-val">—</td><td class="mkt-note">Options max pain ~$2,200</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SIGNALS + BENCHMARKS -->
+  <div class="section-head" id="signals">
+    <h2>Signal Matrix</h2>
+  </div>
+  <div class="section-block ed-grid col-2" style="gap:48px;">
+    <div class="sig-grid">
+      <div class="sig-cell"><div class="sig-name">Fed Rate</div><div class="sig-val" style="color:var(--warn);">3.50–3.75%</div><div class="sig-note">Held · Apr 29</div></div>
+      <div class="sig-cell"><div class="sig-name">UMich Sentiment</div><div class="sig-val" style="color:var(--red);">44.8</div><div class="sig-note">Record low</div></div>
+      <div class="sig-cell"><div class="sig-name">Brent MoM</div><div class="sig-val" style="color:var(--red);">−18%</div><div class="sig-note">Worst since Mar 2020</div></div>
+      <div class="sig-cell"><div class="sig-name">Nasdaq Apr–May</div><div class="sig-val" style="color:var(--up);">+25%</div><div class="sig-note">2-month run</div></div>
+      <div class="sig-cell"><div class="sig-name">New Fed Chair</div><div class="sig-val" style="color:var(--ink);font-size:15px;">Warsh</div><div class="sig-note">In office May 16</div></div>
+      <div class="sig-cell"><div class="sig-name">UAE / OPEC</div><div class="sig-val" style="color:var(--warn);font-size:15px;">Exit</div><div class="sig-note">May 1 withdrawal</div></div>
+      <div class="sig-cell"><div class="sig-name">Ceasefire</div><div class="sig-val" style="color:var(--up);font-size:15px;">60 days</div><div class="sig-note">US-Iran late May</div></div>
+      <div class="sig-cell"><div class="sig-name">Hurricane Season</div><div class="sig-val" style="color:var(--warn);font-size:15px;">Jun 1</div><div class="sig-note">Starts next month</div></div>
+    </div>
+    <div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim);margin-bottom:12px;">Historical Benchmarks · Stability Score</div>
+      <div class="bm-row"><div class="bm-label">May 2026 (this month)</div><div class="bm-val" style="color:var(--warn);">34 / 100</div></div>
+      <div class="bm-row"><div class="bm-label">Mar 2020 — COVID crash (modelled)</div><div class="bm-val" style="color:var(--red);">~18 / 100</div></div>
+      <div class="bm-row"><div class="bm-label">Sep 2008 — Lehman (modelled)</div><div class="bm-val" style="color:var(--red);">~12 / 100</div></div>
+      <div class="bm-row"><div class="bm-label">Jan 2020 — pre-COVID baseline (modelled)</div><div class="bm-val" style="color:var(--up);">~68 / 100</div></div>
+      <div class="bm-row"><div class="bm-label">Dec 2017 — calm bull market (modelled)</div><div class="bm-val" style="color:var(--up);">~74 / 100</div></div>
+      <div style="margin-top:12px;font-size:11px;color:var(--dim);font-style:italic;line-height:1.6;">Historical scores are modelled approximations for calibration — not back-tested data.</div>
+    </div>
+  </div>
+
+  <!-- GEOPOLITICS + CLIMATE -->
+  <div class="section-head" id="geopolitics"><h2>Geopolitics &amp; Climate</h2></div>
+  <div class="ed-grid col-2 section-block" style="gap:48px;">
+    <div>
+      <div class="geo-item"><div class="geo-flag">&#127482;&#127480;&#127470;&#127479;</div><div class="geo-body"><div class="geo-title">US-Iran War <span class="tag tag-amber">Ceasefire</span></div><div class="geo-desc">War started Feb 28. A 60-day ceasefire extension late May reset global macro in 72 hours — oil −18%, equities to ATH, gold pulling back.</div></div></div>
+      <div class="geo-item"><div class="geo-flag">&#128738;</div><div class="geo-body"><div class="geo-title">UAE exits OPEC <span class="tag tag-red">Structural</span></div><div class="geo-desc">UAE formally withdrew May 1. Fundamentally reshapes Gulf energy politics and OPEC+ leverage heading into H2 2026.</div></div></div>
+      <div class="geo-item"><div class="geo-flag">&#127960;</div><div class="geo-body"><div class="geo-title">New Fed Chair Warsh <span class="tag tag-amber">Watch</span></div><div class="geo-desc">Kevin Warsh assumed office May 16. Known hawk and market sceptic. His first independent rate decision is the most-watched monetary event of H2 2026.</div></div></div>
+      <div class="geo-item"><div class="geo-flag">&#9917;</div><div class="geo-body"><div class="geo-title">FIFA 2026 dynamic pricing complaint <span class="tag tag-blue">EU</span></div><div class="geo-desc">EU consumer groups filed a complaint over FIFA's algorithmic ticket pricing. Regulatory pressure on dynamic pricing accelerating globally.</div></div></div>
+    </div>
+    <div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim);margin-bottom:4px;">May 2026 Climate Risk Level</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;color:var(--warn);margin-bottom:16px;letter-spacing:0.04em;">Moderate–Elevated</div>
+      <div class="geo-item"><div class="geo-flag">&#127470;&#127475;</div><div class="geo-body"><div class="geo-title">India — floods &amp; lightning <span class="tag tag-red">Active</span></div><div class="geo-desc">122+ fatalities across multiple states since May 13. Tens of thousands affected. Pre-monsoon intensity above seasonal norms (GDACS).</div></div></div>
+      <div class="geo-item"><div class="geo-flag">&#127754;</div><div class="geo-body"><div class="geo-title">Mediterranean tsunami warning <span class="tag tag-amber">UNESCO</span></div><div class="geo-desc">UNESCO warned May 20 that a Mediterranean tsunami is "inevitable." Structural multi-decade risk, not imminent.</div></div></div>
+      <div class="geo-item"><div class="geo-flag">&#127744;</div><div class="geo-body"><div class="geo-title">Atlantic hurricane season opens June 1 <span class="tag tag-amber">Upcoming</span></div><div class="geo-desc">Warm Gulf temperatures and La Niña raise probability of above-normal activity. Watch: Gulf Coast energy infrastructure.</div></div></div>
+    </div>
+  </div>
+
+  <!-- EMERGING MARKETS -->
+  <div class="section-head" id="emerging"><h2>Emerging Markets Pulse</h2></div>
+  <div class="ed-grid col-3 section-block" style="gap:0;">
+    <div class="col-border">
+      <div class="em-stat"><div class="em-big">35.6%</div><div class="em-sublabel">Annualised return through Apr 2026</div></div>
+      <div class="em-stat"><div class="em-big">11.7×</div><div class="em-sublabel">Forward P/E — discount to 10-yr avg 12.2×</div></div>
+      <div style="margin-top:10px;font-size:11px;color:var(--dim);font-style:italic;">vs 17.3% MSCI World. Verify May close via MSCI.com or EEM ETF.</div>
+    </div>
+    <div class="col-border">
+      <div class="em-stat"><div class="em-big" style="color:var(--up);">~50%</div><div class="em-sublabel">EM EPS growth estimate 2026</div></div>
+      <div class="em-stat"><div class="em-big">19%</div><div class="em-sublabel">Developed Markets EPS growth 2026</div></div>
+      <div style="margin-top:10px;font-size:11px;color:var(--dim);font-style:italic;">Most bullish EM earnings differential in several years.</div>
+    </div>
+    <div class="col-border">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim);margin-bottom:12px;">EM Spotlight</div>
+      <div class="bm-row"><div class="bm-label">Indonesia Spotify growth</div><div class="bm-val" style="color:var(--up);">+77%</div></div>
+      <div class="bm-row"><div class="bm-label">Germany EM streams</div><div class="bm-val">604M</div></div>
+      <div class="bm-row"><div class="bm-label">India macro risk</div><div class="bm-val" style="color:var(--warn);">Elevated</div></div>
+      <div class="bm-row"><div class="bm-label">Brazil / LatAm</div><div class="bm-val" style="color:var(--up);">Positive</div></div>
+    </div>
+  </div>
+
+  <!-- ARCANE ECONOMICS -->
+  <div class="section-head" id="arcane"><h2>Arcane Economics</h2><div class="section-tag">Indicators others ignore</div></div>
+  <div class="ed-grid col-4 section-block" style="gap:0;">
+    <div class="col-border">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim);margin-bottom:4px;">Fear &amp; Greed Index</div>
+      <div class="arcane-num" style="color:var(--up);">60</div>
+      <div class="arcane-label">Greed · CNN composite · May 28</div>
+      <div class="scale-strip">
+        <div class="scale-seg" style="background:#FDE8EB;"><div class="scale-seg-label" style="color:var(--red);">Extreme Fear</div><div class="scale-seg-range">0–25</div></div>
+        <div class="scale-seg" style="background:#FDF3E3;"><div class="scale-seg-label" style="color:var(--warn);">Fear</div><div class="scale-seg-range">26–44</div></div>
+        <div class="scale-seg" style="background:var(--cream2);"><div class="scale-seg-label" style="color:var(--muted);">Neutral</div><div class="scale-seg-range">45–55</div></div>
+        <div class="scale-seg" style="background:#E6F4EC;border:1.5px solid #1A6B3A;"><div class="scale-seg-label" style="color:var(--up);">Greed &#8592;</div><div class="scale-seg-range">56–74</div></div>
+        <div class="scale-seg" style="background:#C8ECD6;"><div class="scale-seg-label" style="color:var(--up);">Ext. Greed</div><div class="scale-seg-range">75–100</div></div>
+      </div>
+      <div class="arcane-desc">7 equal-weight components: market momentum, price strength, breadth, put/call ratio, VIX, safe-haven demand, junk bond spread. Swung from 15 (Extreme Fear) in early April to 60 by month-end.</div>
+      <div class="arcane-warn">Source: MacroMicro / CNN Business. Verified 60.14 on May 28.</div>
+    </div>
+    <div class="col-border">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim);margin-bottom:4px;">Baltic Dry Index</div>
+      <div class="arcane-num" style="color:var(--warn);">~1,380</div>
+      <div class="arcane-label">Approximate · May 2026</div>
+      <div class="scale-strip">
+        <div class="scale-seg" style="background:#FDE8EB;"><div class="scale-seg-label" style="color:var(--red);">Distressed</div><div class="scale-seg-range">&lt;600</div></div>
+        <div class="scale-seg" style="background:#FDF3E3;border:1.5px solid #8B5E00;"><div class="scale-seg-label" style="color:var(--warn);">Moderate &#8592;</div><div class="scale-seg-range">600–1,800</div></div>
+        <div class="scale-seg" style="background:#E6F4EC;"><div class="scale-seg-label" style="color:var(--up);">Healthy</div><div class="scale-seg-range">1,800–3,500</div></div>
+        <div class="scale-seg" style="background:#C8ECD6;"><div class="scale-seg-label" style="color:var(--up);">Boom</div><div class="scale-seg-range">&gt;3,500</div></div>
+      </div>
+      <div class="arcane-desc">Daily rate for dry bulk ships carrying iron ore, coal, grain. No derivatives, no sentiment — actual ships. All-time high ~11,800 (May 2008). COVID low ~393 (2016). At ~1,380 global trade is moderate, not recessionary.</div>
+      <div class="arcane-warn">&#9888; Estimate. Verify via Baltic Exchange or Hellenic Shipping News.</div>
+    </div>
+    <div class="col-border">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim);margin-bottom:4px;">Shiller CAPE Ratio</div>
+      <div class="arcane-num" style="color:var(--red);">~38×</div>
+      <div class="arcane-label">Cyclically Adjusted P/E · approx. May 2026</div>
+      <div class="arcane-desc">Divides S&P 500 by the average of 10 years of real earnings. At ~38× it sits well above the long-run average of ~17× and approaching dot-com era highs. Warsh's hawkish instincts vs a market at CAPE 38 is the central tension of H2 2026.</div>
+      <div class="arcane-warn">&#9888; Approximate. Verify via multpl.com or GuruFocus.</div>
+    </div>
+    <div class="col-border">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim);margin-bottom:4px;">Buffett Indicator</div>
+      <div class="arcane-num" style="color:var(--red);">~195%</div>
+      <div class="arcane-label">Total Market Cap / US GDP · approx. May 2026</div>
+      <div class="arcane-desc">Buffett called this "probably the best single measure of where valuations stand." At ~195% it signals significant overvaluation — above the 2021 peak of ~190%. In a month when equities hit ATH while GDP growth stays modest, this flashes amber at minimum.</div>
+      <div class="arcane-warn">&#9888; Approximate. Verify via GuruFocus Buffett Indicator.</div>
+    </div>
+  </div>
+
+  <!-- COSMIC -->
+  <div class="section-head" id="cosmic"><h2>Cosmic Layer</h2><div class="section-tag">Earth, Sky &amp; Time</div></div>
+  <div class="ed-grid col-3 section-block" style="gap:0;">
+    <div class="col-border">
+      <div class="cosmic-icon">&#127765;</div>
+      <div class="cosmic-title">Moon Phase · June 1, 2026</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:8px;letter-spacing:0.06em;">Waxing Gibbous · ~78% illuminated</div>
+      <div class="cosmic-desc">12 days into its cycle, approaching fullness. Full moon arrives June 3. The ceasefire signed as the moon waxed will face its first real test under June's full light.</div>
+    </div>
+    <div class="col-border">
+      <div class="cosmic-icon">&#9915;</div>
+      <div class="cosmic-title">Venus at Greatest Eastern Elongation</div>
+      <div class="cosmic-desc">Venus reached its greatest separation from the Sun in late May — the brightest object in the evening sky. Visible from Barcelona: southwest horizon, approximately 30 minutes after sunset.</div>
+    </div>
+    <div class="col-border">
+      <div class="cosmic-icon">&#128336;</div>
+      <div class="cosmic-title">Today in History · June 1</div>
+      <div class="cosmic-desc">June 1, 1980: CNN launched as the world's first 24-hour television news network — founded by Ted Turner, who died May 6, 2026 at age 87. The network he built to cover crises was absent from the breaking news of his own death for several hours.</div>
+    </div>
+  </div>
+
+  <!-- CULTURE -->
+  <div class="section-head" id="culture"><h2>Culture Layer</h2><div class="section-tag">Read · Hear · Know</div></div>
+  <div class="ed-grid col-3 section-block" style="gap:0;">
+    <div class="col-border">
+      <div class="culture-eyebrow">Book in 60 seconds</div>
+      <div class="culture-title">The Precipice</div>
+      <div class="culture-meta">Toby Ord · 2020 · Philosophy / Existential Risk</div>
+      <div class="culture-desc">Oxford philosopher Toby Ord argues we live at the most important moment in human history. He estimates a 1-in-6 chance of civilisational catastrophe this century. Read alongside May's supernova debris story and UNESCO's tsunami warning and the book stops feeling abstract.</div>
+    </div>
+    <div class="col-border">
+      <div class="culture-eyebrow">Word you should know</div>
+      <div class="culture-title">Imaginal</div>
+      <div class="culture-meta">Adjective · from Latin imaginalis · depth psychology</div>
+      <div class="culture-desc">Relating to the imagination as a distinct cognitive space — images that are neither purely literal nor purely abstract. In a month where market "reality" and consumer "reality" violently diverged, imaginal thinking — holding two contradictory truths simultaneously — may be the most useful cognitive skill available.</div>
+    </div>
+    <div class="col-border">
+      <div class="culture-eyebrow">Album · 59 years ago today</div>
+      <div class="culture-title">Sgt. Pepper's Lonely Hearts Club Band</div>
+      <div class="culture-meta">The Beatles · Released June 1, 1967</div>
+      <div class="culture-desc">On June 1, 1967, the Beatles released the album widely considered the most influential in recorded history. It introduced the concept album, the studio as instrument, and the idea that pop music could carry philosophical weight. In a month that felt simultaneously euphoric and terrified, Sgt. Pepper remains the definitive document of exactly that tension.</div>
+    </div>
+  </div>
+
+  <!-- ENTERTAINMENT -->
+  <div class="section-head" id="entertainment"><h2>Live Entertainment</h2><div class="section-tag">Special Focus</div></div>
+  <div class="ed-grid col-3 section-block" style="gap:0;">
+
+    <div class="col-border">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);margin-bottom:14px;">elrow · 5 News Items</div>
+      <div class="ent-item"><div class="ent-num">01</div><div class="ent-body"><div class="ent-title">elrow Town Madrid — 35,000 attendees, May 1</div><div class="ent-desc">80,000m² across eight stages, 70+ artists. Only Spanish edition of 2026 — deliberate scarcity play.</div><div class="ent-tag">&#8594; Scarcity strategy confirmed working</div></div></div>
+      <div class="ent-item"><div class="ent-num">02</div><div class="ent-body"><div class="ent-title">First-ever India dates: Mumbai &amp; Bengaluru</div><div class="ent-desc">NSCI Dome Mumbai (May 17) and Bengaluru (May 23). Asia-Pacific expansion enabled by KKR backing.</div><div class="ent-tag">&#8594; EM growth strategy executing</div></div></div>
+      <div class="ent-item"><div class="ent-num">03</div><div class="ent-body"><div class="ent-title">Liverpool sold out at Blackstone Street Warehouse</div><div class="ent-desc">May 24 afternoon format. Regional UK circuit with different pace and demographic to flagship events.</div><div class="ent-tag">&#8594; Format diversification</div></div></div>
+      <div class="ent-item"><div class="ent-num">04</div><div class="ent-body"><div class="ent-title">UNVRS Ibiza Saturdays from June 6</div><div class="ent-desc">Summer pipeline: Monegros July 25, Barcelona, New York, Reggio Emilia FRED.</div><div class="ent-tag">&#8594; Calendar densification</div></div></div>
+      <div class="ent-item"><div class="ent-num">05</div><div class="ent-body"><div class="ent-title">Superstruct / KKR at ~€1.3B valuation</div><div class="ent-desc">CVC co-invested; Boiler Room acquired January 2025. SHA governance and EBITDA trajectory: key watch items.</div><div class="ent-tag">&#8594; PE thesis executing; watch governance</div></div></div>
+    </div>
+
+    <div class="col-border">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);margin-bottom:14px;">Ibiza · 5 News Items</div>
+      <div class="ent-item"><div class="ent-num">01</div><div class="ent-body"><div class="ent-title">UNVRS named DJ Mag #1 Club in the World 2026</div><div class="ent-desc">First club to top the poll in its debut year. Season 2 opened with Carl Cox at first sunrise.</div><div class="ent-tag">&#8594; Historic achievement for a new venue</div></div></div>
+      <div class="ent-item"><div class="ent-num">02</div><div class="ent-body"><div class="ent-title">Amnesia 50th anniversary opened May 9</div><div class="ent-desc">Seth Troxler, Amelie Lens, Joseph Capriati. Half a century of the club that invented the superclub concept.</div><div class="ent-tag">&#8594; Legacy venues still commanding top bookings</div></div></div>
+      <div class="ent-item"><div class="ent-num">03</div><div class="ent-body"><div class="ent-title">IMS Ibiza 2026: €160M ticketing record</div><div class="ent-desc">Record revenue from club ticketing. The Ibiza Paradox: at regulatory capacity, revenues still growing.</div><div class="ent-tag">&#8594; Pricing power defying volume limits</div></div></div>
+      <div class="ent-item"><div class="ent-num">04</div><div class="ent-body"><div class="ent-title">Calvin Harris: longest-ever Ibiza residency at Ushuaia</div><div class="ent-desc">Swedish House Mafia return; Tomorrowland takes Wednesdays. Star residency model intensifying.</div><div class="ent-tag">&#8594; Big names outpacing genre nights</div></div></div>
+      <div class="ent-item"><div class="ent-num">05</div><div class="ent-body"><div class="ent-title">Tourism vs regulation tension building</div><div class="ent-desc">3-4M summer visitors against growing municipal pressure. The 3-5 year structural risk is regulatory, not cultural.</div><div class="ent-tag">&#8594; Watch: Balearic government policy H2 2026</div></div></div>
+    </div>
+
+    <div class="col-border">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);margin-bottom:14px;">5 DJs to Follow</div>
+      <div class="ent-item"><div class="ent-num">01</div><div class="ent-body"><div class="ent-title">Anyma</div><div class="ent-desc">AEDEN World Tour, Coachella, Sphere. 12-country run. UNVRS Tuesdays. Most scalable artist in electronic music right now.</div><div class="ent-tag">&#8594; Buy before the mainstream arrives</div></div></div>
+      <div class="ent-item"><div class="ent-num">02</div><div class="ent-body"><div class="ent-title">John Summit</div><div class="ent-desc">1.5B streams. 9 Mondays at UNVRS. Second album in production. Growing both streams and ticket prices simultaneously.</div><div class="ent-tag">&#8594; Rare crossover without credibility loss</div></div></div>
+      <div class="ent-item"><div class="ent-num">03</div><div class="ent-body"><div class="ent-title">Charlotte de Witte</div><div class="ent-desc">Beatport's top Trance artist 2025. UNVRS appearance May 29. Redefining trance for a techno-trained audience.</div><div class="ent-tag">&#8594; Genre-bridging moment at peak career</div></div></div>
+      <div class="ent-item"><div class="ent-num">04</div><div class="ent-body"><div class="ent-title">Mochakk</div><div class="ent-desc">Coachella 2026 on the AEDEN stage. South American artist closest to global headliner status.</div><div class="ent-tag">&#8594; Next LatAm breakthrough</div></div></div>
+      <div class="ent-item"><div class="ent-num">05</div><div class="ent-body"><div class="ent-title">Josh Baker</div><div class="ent-desc">UK minimal house credibility. Amnesia 50th anniversary opening booking. The name to know before the market does.</div><div class="ent-tag">&#8594; Buy before the hype arrives</div></div></div>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <svg width="28" height="28" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="44" height="44" rx="7" fill="#2D2D2D"/>
+      <path d="M5,22 Q22,6 39,22 Q22,38 5,22 Z" stroke="#888" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      <circle cx="22" cy="22" r="8.5" stroke="#888" stroke-width="1.5" fill="none"/>
+      <circle cx="22" cy="22" r="3.5" fill="#888"/>
+    </svg>
+    <div>
+      <div class="footer-wordmark">lucid by vince</div>
+      <div class="footer-tag">See what others miss.</div>
+    </div>
+  </div>
+  <div class="footer-sources">
+    CNBC · Yahoo Finance · Federal Reserve · University of Michigan · GDACS · UNESCO · ScienceDaily · MacroMicro / CNN Business<br/>
+    Baltic Exchange · GuruFocus · multpl.com · RBC Wealth Management · IMS Business Report 2026 · Encyclopedia Britannica · CoinDesk<br/>
+    IBEX 35: verify via BME · MSCI EM: verify via MSCI.com · Baltic Dry / CAPE / Buffett Indicator: approximate, verify before citing<br/>
+    <span style="font-style:italic;color:#444;">&copy; Lucid by Vince · Issue 01 · May 2026 · Not financial advice · lucidbyvince.com</span>
+  </div>
+</footer>
+
+</body>
+</html>

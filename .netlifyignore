@@ -1,0 +1,14 @@
+app/
+node_modules/
+.next/
+package.json
+package-lock.json
+next.config.ts
+postcss.config.mjs
+tsconfig.json
+eslint.config.mjs
+AGENTS.md
+CLAUDE.md
+README.md
+next-env.d.ts
+public/
